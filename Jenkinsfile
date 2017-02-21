@@ -27,7 +27,7 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
-            sh '#1/bin/bash; echo "1" >> /tmp/myfile'
+            sh '#!/bin/bash; echo "1" >> /tmp/myfile'
         }
         failure {
             echo 'This will run only if failed'
