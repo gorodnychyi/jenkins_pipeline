@@ -15,6 +15,15 @@ pipeline {
                 sh 'echo "2nd - 2"'
             }
         }
+        stage('3') {
+            try {
+                echo '1'
+            }
+            catch (err) {
+                echo err
+                throw
+            }
+        }
     }
     post {
         always {
