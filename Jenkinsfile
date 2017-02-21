@@ -1,15 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Test task') {
             steps {
                 echo 'Works!'
-            }
-            steps {
-                echo 'Next step'
-            }
-            steps {
-                echo 'Last one'
             }
         }
     }
