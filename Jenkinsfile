@@ -27,7 +27,7 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
-            sh 'echo "1" >> /tmp/myfile'
+            sh 'echo "sample interaction fith fs" > /tmp/myfile'
         }
         failure {
             echo 'This will run only if failed'
