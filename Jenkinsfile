@@ -17,12 +17,7 @@ pipeline {
         }
         stage('3') {
             steps {
-            try {
-                echo '1'
-            } 
-            catch (err) {
-                println 'catch'
-            }
+                echo '3'
             }
         }
     }
