@@ -18,10 +18,9 @@ pipeline {
         stage('3') {
             try {
                 echo '1'
-            }
-            catch (err) {
-                echo err
-                throw
+            } catch (err) {
+                println 'catch'
+                throw(err)
             }
         }
     }
