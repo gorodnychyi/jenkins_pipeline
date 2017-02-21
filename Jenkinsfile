@@ -4,6 +4,8 @@ pipeline {
         stage('Test task') {
             steps {
                 echo 'Works!'
+                sleep 5
+                echo 'Continue'
             }
         }
     }
