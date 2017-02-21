@@ -5,8 +5,14 @@ pipeline {
             steps {
                 echo 'Works!'
                 sleep 5
-                sh 'echo "fail"; exit 1'
+                sh 'echo "OK"'
                 echo 'Continue'
+            }
+        }
+        stage('2nd stage tasks'){
+            steps {
+                echo '2nd - 1step'
+                sh 'echo "2nd - 2"'
             }
         }
     }
