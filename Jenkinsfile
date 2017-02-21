@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Works!'
                 sleep 5
+                sh 'echo "fail"; exit 1'
                 echo 'Continue'
             }
         }
