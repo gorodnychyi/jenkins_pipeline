@@ -1,24 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Test task') {
+        stage('Increase release version') {
             steps {
-                echo 'Works!'
-                sleep 3
-                sh 'echo "OK"'
-                echo 'Continue'
+               sh 'sed "s/Release.*$/Release: 4/" /home/jenkins/rpms/my-tools-pack/spec/header' 
             }
         }
-        stage('2nd stage tasks'){
+        stage('Build package'){
             steps {
-                echo '2nd - 1step'
-                sh 'echo "2nd - 2"'
+                sh 'cd /home/jenkins/rpms/my-tools-pack/; togo build package'
             }
         }
-        stage('3') {
+        stage('Update package in system') {
             steps {
-                echo '3'
-                sh '/home/jenkins/postscript.sh'
+                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-4.noarch.rpm'
             }
         }
     }
@@ -28,8 +23,6 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
-            sh 'echo "sample interaction fith fs" >> /tmp/myfile'
-            sh '/home/jenkins/postscript.sh'
         }
         failure {
             echo 'This will run only if failed'
