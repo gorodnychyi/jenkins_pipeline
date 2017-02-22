@@ -28,6 +28,7 @@ pipeline {
         }
         success {
             echo "Success build: ${BUILD_NUMBER}"
+            echo 'Test installed application'
             sh '/usr/local/bin/stat.sh'
         }
         failure {
