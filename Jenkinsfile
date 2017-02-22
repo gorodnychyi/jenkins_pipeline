@@ -25,10 +25,9 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            echo "${BUILD_NUMBER}"
         }
         success {
-            echo 'This will run only if successful'
+            echo "Success buil: ${BUILD_NUMBER}"
             sh '/usr/local/bin/stat.sh'
         }
         failure {
