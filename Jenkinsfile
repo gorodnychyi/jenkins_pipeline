@@ -25,7 +25,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            echo '${BUILDS_ALL_TIME}'
+            echo ${BUILD_NUMBER}
         }
         success {
             echo 'This will run only if successful'
