@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Increase release version') {
             steps {
-               sh 'sed "s/Release.*$/Release: 4/" /home/jenkins/rpms/my-tools-pack/spec/header' 
+               sh 'sed -i "s/Release.*$/Release: 4/" /home/jenkins/rpms/my-tools-pack/spec/header' 
             }
         }
         stage('Build package'){
@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Update package in system') {
             steps {
-                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-4.noarch.rpm'
+                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-4.noarch.rpm -y'
             }
         }
     }
