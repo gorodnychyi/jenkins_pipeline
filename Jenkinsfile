@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Verification') {
             steps {
-                sh 'rpm -V my-tools-pack-1.0-${BUILD_NUMBER}.noarch'
+                sh 'echo "new package version: my-tools-pack-1.0-${BUILD_NUMBER}.noarch"'
             }
         }
     }
