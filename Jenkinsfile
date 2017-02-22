@@ -21,6 +21,11 @@ pipeline {
                 sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-${BUILD_NUMBER}.noarch.rpm -y'
             }
         }
+        stage('Verification') {
+            steps {
+                sh 'rpm -V my-tools-pack-1.0-${BUILD_NUMBER}.noarch'
+            }
+        }
     }
     post {
         always {
