@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Edit project files') {
             steps {
-                sh 'echo "echo ""version: 7""" >> /home/jenkins/rpms/my-tools-pack/root/usr/local/bin/stat.sh'
+                sh 'echo "echo \"version: 8\"" >> /home/jenkins/rpms/my-tools-pack/root/usr/local/bin/stat.sh'
             }
         }
         stage('Increase release version') {
             steps {
-               sh 'sed -i "s/Release.*$/Release: 7/" /home/jenkins/rpms/my-tools-pack/spec/header' 
+               sh 'sed -i "s/Release.*$/Release: 8/" /home/jenkins/rpms/my-tools-pack/spec/header' 
             }
         }
         stage('Build package'){
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Update package in system') {
             steps {
-                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-7.noarch.rpm -y'
+                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-8.noarch.rpm -y'
             }
         }
     }
