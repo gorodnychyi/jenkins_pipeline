@@ -4,7 +4,7 @@ pipeline {
         stage('Test task') {
             steps {
                 echo 'Works!'
-                sleep 5
+                sleep 3
                 sh 'echo "OK"'
                 echo 'Continue'
             }
@@ -18,6 +18,7 @@ pipeline {
         stage('3') {
             steps {
                 echo '3'
+                sh '/home/jenkins/postscript.sh'
             }
         }
     }
