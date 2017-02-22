@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('Edit project files') {
+            steps {
+                sh 'echo "version: 5" >> /home/jenkins/rpms/my-tools-pack/root/usr/local/bin/stat.sh'
+            }
+        }
         stage('Increase release version') {
             steps {
-               sh 'sed -i "s/Release.*$/Release: 4/" /home/jenkins/rpms/my-tools-pack/spec/header' 
+               sh 'sed -i "s/Release.*$/Release: 5/" /home/jenkins/rpms/my-tools-pack/spec/header' 
             }
         }
         stage('Build package'){
@@ -13,7 +18,7 @@ pipeline {
         }
         stage('Update package in system') {
             steps {
-                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-4.noarch.rpm -y'
+                sh 'sudo yum install /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-5.noarch.rpm -y'
             }
         }
     }
