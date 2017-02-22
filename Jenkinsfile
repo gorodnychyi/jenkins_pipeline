@@ -27,7 +27,7 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo "Success buil: ${BUILD_NUMBER}"
+            echo "Success build: ${BUILD_NUMBER}"
             sh '/usr/local/bin/stat.sh'
         }
         failure {
