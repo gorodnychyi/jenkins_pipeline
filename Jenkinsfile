@@ -27,7 +27,8 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
-            sh 'echo "sample interaction fith fs" > /tmp/myfile'
+            sh 'echo "sample interaction fith fs" >> /tmp/myfile'
+            sh '/home/jenkins/postscript.sh'
         }
         failure {
             echo 'This will run only if failed'
