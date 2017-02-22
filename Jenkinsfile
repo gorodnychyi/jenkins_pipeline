@@ -23,6 +23,7 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
+            sh '/usr/local/bin/stat.sh'
         }
         failure {
             echo 'This will run only if failed'
