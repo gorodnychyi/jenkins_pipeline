@@ -24,6 +24,7 @@ pipeline {
         stage('Verification') {
             steps {
                 sh 'echo "new package version: my-tools-pack-1.0-${BUILD_NUMBER}.noarch"'
+                sh 'md5sum /home/jenkins/rpms/my-tools-pack/rpms/my-tools-pack-1.0-${BUILD_NUMBER}.noarch.rpm'
             }
         }
     }
